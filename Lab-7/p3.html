@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3</title>
+</head>
+
+<body>
+    <input type="search" id="unm" placeholder="Search by username..."> <button id="sch" disabled onclick="search()">Search</button><br>
+    <button id="fus" onclick="displayUsers()">Fetch All Users</button>
+    <table id="users" border="1">
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+        </tr>
+    </table>
+    <script>
+        let tbusr = document.getElementById("users");
+        let fus=document.getElementById("fus");
+        let sch=document.getElementById("sch");
+        async function fetchUsers()
+        {
+            let response = await fetch("https://jsonplaceholder.typicode.com/users");
+            let data = await response.json();
+            return data;
+        }
+        async function displayUsers() {
+            tbusr.innerHTML="";
+            let data= await fetchUsers();
+            for (const user of data) {
+                tbusr.innerHTML += `<tr>
+                                    <td>${user.username}</td>
+                                    <td>${user.email}</td>
+                                    <td>${user.phone}</td>
+                                    <td>${user.address.city}</td>
+                                </tr>
+                    `;
+            }
+            fus.disabled=true;
+            sch.disabled=false;
+        }
+        async function search()
+        {
+            let data= await fetchUsers();
+            let unm=document.getElementById("unm").value.trim();
+            for (const user of data) {
+                console.log(user.username.toLowerCase()===unm.toLowerCase());
+                if((user.username).toLowerCase()===unm.toLowerCase())
+                {
+                    tbusr.innerHTML = `<tr>
+                                        <td>${user.username}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.phone}</td>
+                                        <td>${user.address.city}</td>
+                                    </tr>
+                        `;
+                    break;
+                }
+                else
+                {
+                    tbusr.innerHTML="<h1>No User Found</h1>";
+                }
+            }
+            fus.disabled=false;
+            sch.disabled=true;
+        }
+    </script>
+</body>
+</html>

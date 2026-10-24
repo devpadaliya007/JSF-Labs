@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="getWeather('rajkot')">Get Weather</button>
+<p id="weather"></p>
+
+<script>
+function getWeather(c) {
+    let Key = "a905bbb566d84a5c206718f8e3609413"; 
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${c}&appid=${Key}&units=metric`)
+        .then(res => res.json())
+        .then(data => {
+            weather.innerHTML="Temp"+data.main.temp+"<br>"
+            +"weather"+data.weather[0].description;   
+        })        
+}
+</script>
+</body> 
+</html>

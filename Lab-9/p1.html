@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="o"></div>
+    <script>
+        let stu =[];
+        let n=parseInt(prompt("Enter no. of student"));
+        for (let i=0;i<n;i++)
+    {
+        let student=prompt("Enter student name");
+        stu.push(student)
+    }
+    let result=''
+    for (let i=0;i<n;i++)
+    {
+        result+=stu[i]+',';
+    }
+    document.getElementById('o').innerHTML=result
+    </script>
+</body>
+</html>

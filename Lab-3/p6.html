@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        let cart = [
+            { name: "Milk", price: 30, qty: 2 },
+            { name: "Bread", price: 25, qty: 1 },
+            { name: "Eggs", price: 6, qty: 12 },
+            { name: "Chocolate", price: 80, qty: 1 },
+            { name: "Chips", price: 20, qty: 0 }  
+        ];
+
+        
+        let validItems = cart.filter(item => item.qty > 0);
+        let itemTotals = validItems.map(item => item.price * item.qty);
+        let totalBill = itemTotals.reduce((sum, value) => sum + value, 0);
+
+        document.write("Item-wise totals:", itemTotals);
+        document.write("Total Bill Amount = ₹" + totalBill);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form>
+        Name:
+        <input type="text" id="name" onkeyup="validateName()">
+        <span id="nameError" class="error"></span><br><br>
+
+        Email:
+        <input type="text" id="email" onkeyup="validateEmail()">
+        <span id="emailError" class="error"></span><br><br>
+
+        Password:
+        <input type="password" id="password" onkeyup="validatePassword()">
+        <span id="passwordError" class="error"></span><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validateName() {
+            let name = document.getElementById("name").value;
+            document.getElementById("nameError").innerHTML =
+                name === "" ? "Name is required" : "";
+        }
+
+        function validateEmail() {
+            let email = document.getElementById("email").value;
+            let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            document.getElementById("emailError").innerHTML =
+                pattern.test(email) ? "" : "Invalid email format";
+        }
+
+        function validatePassword() {
+            let password = document.getElementById("password").value;
+
+            document.getElementById("passwordError").innerHTML =
+                password.length < 6 ? "Password must be at least 6 characters" : "";
+        }
+    </script>
+</body>
+</html>

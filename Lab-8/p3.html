@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3</title>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        class Student{
+            constructor(name,rollNo,age){
+                this.name = name;
+                this.rollNo = rollNo;
+                this.age = age;
+            }
+            display()
+            {
+                document.querySelector('.container').innerHTML += `<h2>Name: ${this.name}, Roll No: ${this.rollNo}, Age: ${this.age}</h2>`;
+            }
+        }
+        let s1=new Student("Dev",128,20);
+        let s2=new Student("Shlok",124,19);
+        let s3=new Student("Hemang",126,18);
+        let s4=new Student("Nirav",202,19);
+        
+        
+        s1.display();
+        s2.display();
+        s3.display();
+        s4.display();
+    </script>
+</body>
+</html>

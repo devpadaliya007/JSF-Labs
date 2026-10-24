@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img" src="c:\Users\NSP User\Downloads\audi-r26-concept-8k-3440x1440-24660.jpg" width="200">
+    </br> </br>
+
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="next()">Next</button>
+    
+
+    <script>
+        let image=["bgmi.jpg","dulogo.png","userlogo.jpg"];
+        let index=0;
+
+        function prevImage(){
+          index++;
+          if (index >= image.length) {
+            index = 0;
+            }
+            document.getElementById("img").src = image[index];
+        }
+
+        function next(){
+          index--;
+          if (index < 0) {
+                index = image.length - 1;
+            }
+            document.getElementById("img").src = image[index];
+        }
+
+    </script>
+</body>
+</html>

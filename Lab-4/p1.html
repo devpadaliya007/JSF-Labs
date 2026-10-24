@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Paragraph Color</title>
+</head>
+<body>
+
+<p id="para">
+    This is a simple paragraph. Click the button to change its colors.
+</p>
+
+<button onclick="changeColor()">Change Color</button>
+
+<script>
+    function changeColor() {
+        let p = document.getElementById("para");
+        p.style.color = "black";
+        p.style.backgroundColor = "cyan";
+    }
+</script>
+
+</body>
+</html>

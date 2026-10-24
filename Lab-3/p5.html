@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Enter n here"));
+        let a=[];
+        for(let i=0;i<n;i++)
+        {
+           let input = parseInt(prompt("Enter marks"));
+           a.push(input);
+        }
+
+        document.write("all marks : ",a.sort()+"</br>");
+        document.write("Highest marks : ",a[a.length-1]+"</br>");
+        document.write("Lowest marks : ",a[0]+"</br>");
+    </script>
+</body>
+</html>

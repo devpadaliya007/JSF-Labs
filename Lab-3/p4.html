@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+<script>
+    let cart = [];
+
+    document.write("1. Add Item<br>");
+    document.write("2. Remove Item<br>");
+    document.write("3. View Cart<br>");
+    document.write("4. Exit<br><br>");
+
+    while (true) {
+        let choice = parseInt(prompt("Enter your choice (1-4):"));
+
+        if (choice === 1) {
+            let item = prompt("Enter item to add:");
+            cart.push(item);
+            alert(item + " added to cart.");
+
+        } else if (choice === 2) {
+            let item = prompt("Enter item to remove:");
+            let index = cart.indexOf(item);
+
+            if (index !== -1) {
+                cart.splice(index, 1);   
+                alert(item + " removed from cart.");
+            } else {
+                alert("Item not found in cart.");
+            }
+
+        } else if (choice === 3) {
+            alert(cart.length === 0 ? "Cart is empty." : "Cart items:\n" + cart.join(", "));
+
+        } else if (choice === 4) {
+            alert("Exiting...");
+            break;
+
+        } else {
+            alert("Invalid choice, try again.");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Count</title>
+</head>
+<body>
+
+<script>
+    let sentence = prompt("Enter a sentence");
+    let words = sentence.trim().split(/\s+/);
+    let count = words.length;
+
+    document.write("Sentence: " + sentence + "<br>");
+    document.write("Number of words: " + count);
+</script>
+
+</body>
+</html>
